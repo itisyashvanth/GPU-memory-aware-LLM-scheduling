@@ -1,0 +1,35 @@
+
+======================================================================
+EXPERIMENT 1: Threshold Sensitivity Sweep
+======================================================================
+  threshold=0.50  ->  OOM rate=  0.0%  completed= 415  tokens= 43640
+  threshold=0.60  ->  OOM rate=  0.0%  completed= 449  tokens= 49421
+  threshold=0.70  ->  OOM rate=  0.0%  completed= 502  tokens= 58501
+  threshold=0.75  ->  OOM rate=  0.0%  completed= 535  tokens= 62460
+  threshold=0.80  ->  OOM rate=  0.0%  completed= 571  tokens= 66762
+  threshold=0.85  ->  OOM rate=  0.0%  completed= 583  tokens= 69086
+  threshold=0.90  ->  OOM rate=  0.0%  completed= 633  tokens= 74401
+  threshold=0.95  ->  OOM rate=  0.0%  completed= 670  tokens= 77720
+  threshold=0.98  ->  OOM rate=  0.0%  completed= 687  tokens= 79573
+
+Saved: /Users/itsyash/Downloads/GPU_Memory_Aware_LLM_Scheduling_Project/code_repo/benchmarks/../results/single_seed/threshold_sensitivity.png
+
+Interpretation: lower thresholds (more conservative) drive OOM to zero but may leave some throughput on the table. Higher thresholds risk OOM creeping back up. The 'knee' of the OOM curve is the defensible choice for safe_threshold -- pick the lowest threshold that still achieves 0% OOM, rather than an arbitrary round number.
+
+======================================================================
+EXPERIMENT 2: Multi-Load-Level Comparison
+======================================================================
+
+Load    Policy                          OOM%    Completed   PeakUtil% 
+----------------------------------------------------------------------
+Light   No admission control            0.0     500         53.4      
+Light   Fixed concurrency cap (64)      0.0     281         26.6      
+Light   Memory-aware admission control  0.0     500         53.4      
+Medium  No admission control            10.57   626         101.3     
+Medium  Fixed concurrency cap (64)      0.0     171         24.3      
+Medium  Memory-aware admission control  0.0     590         83.1      
+Heavy   No admission control            21.62   627         103.3     
+Heavy   Fixed concurrency cap (64)      0.0     175         22.0      
+Heavy   Memory-aware admission control  0.0     583         83.4      
+
+Saved: /Users/itsyash/Downloads/GPU_Memory_Aware_LLM_Scheduling_Project/code_repo/benchmarks/../results/single_seed/multi_load_comparison.png

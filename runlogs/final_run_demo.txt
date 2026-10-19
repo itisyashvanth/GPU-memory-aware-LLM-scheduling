@@ -1,0 +1,25 @@
+Results using our memory-aware scheduler:
+  total_requests: 500
+  completed: 476
+  rejected: 24
+  oom_dropped: 0
+  unfinished: 0
+  oom_rate_pct: 0.0
+  avg_latency_steps: 139.05
+  p95_latency_steps: 500
+  peak_utilization_pct: 83.0
+  avg_utilization_pct: 22.3
+  throughput_tokens_completed: 64986
+
+Results with no scheduler (admits everything):
+  total_requests: 500
+  completed: 485
+  rejected: 0
+  oom_dropped: 15
+  unfinished: 0
+  oom_rate_pct: 3.0
+  avg_latency_steps: 132.93
+  p95_latency_steps: 480
+  peak_utilization_pct: 100.5
+  avg_utilization_pct: 22.4
+  throughput_tokens_completed: 64955

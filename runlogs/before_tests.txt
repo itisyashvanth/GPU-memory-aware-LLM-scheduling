@@ -1,0 +1,9 @@
+Testing MemoryAwareGateway with REAL policy.py logic (no GPU/vLLM required)...
+
+PASS: accepts a short request when memory is available, correctly categorized
+PASS: rejects after max_wait_seconds when memory stays over threshold
+PASS: predictive policy runs end-to-end through the gateway with real categorization
+
+All tests passed. Gateway now runs the SAME policy code as simulation,
+verified independent of real vLLM. Next: point at a REAL vLLM instance
+once confirmed working on the 5080.

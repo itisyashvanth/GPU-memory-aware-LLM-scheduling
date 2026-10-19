@@ -1,0 +1,21 @@
+Loaded trained predictor: Linear Regression (test MAE=46.6 tokens, R^2=0.619)
+=====================================================================================
+Policy                          OOM%      Completed   Tokens    PeakUtil% 
+-------------------------------------------------------------------------------------
+Memory-Aware Admission (worst-case)0.0       583         69086     83.4      
+Predictive: Perfect predictor (0.0)0.0       635         71518     85.9      
+Predictive: Accurate predictor (0.2)0.0       637         71722     85.9      
+Predictive: Moderate predictor (0.5)0.0       638         71781     85.9      
+Predictive: Poor predictor (1.0)0.0       641         71433     85.9      
+Predictive: REAL trained predictor (LinReg)0.0       635         72682     85.9      
+=====================================================================================
+
+Saved: /Users/itsyash/Downloads/GPU_Memory_Aware_LLM_Scheduling_Project/code_repo/benchmarks/../results/single_seed/predictive_vs_admission_tradeoff.png
+
+Interpretation: this plot is the actual research finding for this angle.
+If predictive batching with a REALISTIC predictor (0.2-0.5 noise) sits
+noticeably up-and-right of the admission-control star with near-zero OOM,
+that's evidence predictive batching is worth the engineering complexity.
+If it takes a near-perfect predictor to beat admission control meaningfully,
+that's an equally valid (and honest) finding: worst-case reservation may be
+the better real-world choice given how hard length prediction actually is.

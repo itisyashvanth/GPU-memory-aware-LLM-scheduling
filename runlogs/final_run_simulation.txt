@@ -1,0 +1,23 @@
+Model: ModelConfig(num_layers=28, num_kv_heads=2, head_dim=128, dtype_bytes=2)
+Bytes per token (KV cache): 28,672
+GPU KV-cache pool: 2.0 GB
+=> Max tokens the pool can hold at once: 74,898
+
+======================================================================
+Metric                          Baseline (no control) Memory-Aware Policy 
+======================================================================
+total_requests                  800                   800                 
+completed                       627                   583                 
+rejected                        0                     217                 
+oom_dropped                     173                   0                   
+unfinished                      0                     0                   
+oom_rate_pct                    21.62                 0.0                 
+avg_latency_steps               116.46                120.5               
+p95_latency_steps               467                   496                 
+peak_utilization_pct            103.3                 83.4                
+avg_utilization_pct             21.6                  20.7                
+throughput_tokens_completed     73646                 69086               
+======================================================================
+
+Saved plot: /Users/itsyash/Downloads/GPU_Memory_Aware_LLM_Scheduling_Project/code_repo/benchmarks/../results/memory_usage_comparison.png
+Saved plot: /Users/itsyash/Downloads/GPU_Memory_Aware_LLM_Scheduling_Project/code_repo/benchmarks/../results/outcome_comparison.png

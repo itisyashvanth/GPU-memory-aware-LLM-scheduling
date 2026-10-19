@@ -1,0 +1,29 @@
+==========================================================================================
+Configuration                         OOM%    Completed   Rejected  PeakUtil% 
+------------------------------------------------------------------------------------------
+Admission Control, FIFO               0.0     583         217       83.4      
+Admission Control, Smallest-First     0.0     707         93        83.4      
+Predictive Batching, FIFO             0.0     638         162       85.9      
+Predictive Batching, Smallest-First   0.0     724         76        85.8      
+==========================================================================================
+
+Saved: /Users/itsyash/Downloads/GPU_Memory_Aware_LLM_Scheduling_Project/code_repo/benchmarks/../results/optimization_fifo_vs_smallest_first.png
+
+Admission Control: smallest-first completed +124 more requests than FIFO (OOM rate change: +0.00pp)
+Predictive Batching: smallest-first completed +86 more requests than FIFO (OOM rate change: +0.00pp)
+
+==========================================================================================
+FAIRNESS CHECK: does smallest-first disproportionately reject LARGER requests?
+==========================================================================================
+Trace average request size:              237 tokens
+FIFO rejected requests, avg size:         232 tokens (217 rejected)
+Smallest-first rejected requests, avg size: 443 tokens (93 rejected)
+
+HONEST INTERPRETATION: this is NOT a free optimization. Smallest-first genuinely
+improves total throughput and never increases OOM risk, but it does so by
+systematically deprioritizing larger requests -- which are more likely to be
+rejected than under FIFO. This is the classic shortest-job-first scheduling
+tradeoff: better AGGREGATE throughput, worse fairness for large requests.
+Worth presenting as a configurable choice (FIFO for fairness, smallest-first for
+throughput), not an unconditional win -- and a legitimate limitation to name
+proactively rather than have a jury member find it.
