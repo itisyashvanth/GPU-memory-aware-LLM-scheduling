@@ -1,4 +1,4 @@
- # GPU Memory-Aware Scheduling for Large-Batch LLM Inference
+  # GPU Memory-Aware Scheduling for Large-Batch LLM Inference
 
 Cloud Computing / HPC course project: a memory-aware **admission controller**
 (ACCEPT / DELAY / REJECT) in front of an LLM inference engine, driven by
