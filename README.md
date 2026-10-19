@@ -6,8 +6,8 @@ KV-cache headroom, so that bursty traffic cannot exhaust the GPU's KV-cache
 pool.
 
 ## Team
-- [Your name] — policy design, simulation, report
-- [Friend's name] — engine integration, experiments
+- [Sai Yashvanth Kanakam] — policy design, simulation, report
+- [Makkena Venkat Praheesh] — engine integration, experiments
 
 ## What is in this repo
 
